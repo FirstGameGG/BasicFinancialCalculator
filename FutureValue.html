@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="Bakground.css" rel="stylesheet" type="text/css">
+<link href="Background.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" type="x-icon" href="images/Logo.webp">
 </head>
 <body>
@@ -44,7 +44,7 @@
     </div>
 </nav>
 <div class="jumbotron bg-transparent">
-  <h2 class="text-center">เครื่องคิดเลขมูลค่าในอนาคต (FV)&nbsp; </h2>
+<h2 class="text-center">เครื่องคิดเลขมูลค่าในอนาคต (FV)&nbsp; </h2>
 	
   <form>
     <div class="form-group">
@@ -65,6 +65,8 @@
 	  <p class="form-control bg-light">จำนวนมูลค่าที่เปลี่ยนแปลง = <span id="outputFV"></span></p>
 	  <p class="form-control bg-light">จำนวนมูลค่าในอนาคต = <span id="outputTotal"></span></p>
   </form>
+  <canvas class="mt-5 bg-light" id="myChart"></canvas>
+  <canvas class="mt-5 bg-light" id="myChartX"></canvas>
 </div>
 <hr class="my-4">
 <footer>© BasicFinancialCalculator Copyright 2022 | All rights reserved.</footer>
@@ -72,20 +74,7 @@
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap-4.4.1.js"></script>
-<script>
-	function answer(event){
-  event.preventDefault()
-  var amount_input=parseFloat(document.getElementById('amount').value);
-  var rate_input=parseFloat(document.getElementById('rate').value);
-  var n_input=parseFloat(document.getElementById('n').value);
-
-  var FV=(amount_input*(Math.pow((1+rate_input/100),(n_input)))-amount_input).toFixed(2);
-  var total=(parseFloat(amount_input) + parseFloat(FV)).toFixed(2);
-
-  document.getElementById("outputFV").innerHTML = FV;
-  document.getElementById("outputTotal").innerHTML = total;
-	}
-	</script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script/FutureValue.js"></script>
 </body>
 </html>

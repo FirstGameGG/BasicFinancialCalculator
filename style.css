@@ -17,3 +17,12 @@
 	border-left: 5px solid #faa16d;
 }
 
+#myChartX {
+    border-radius: 15px;
+	padding: 10px;
+}
+
+#myChart {
+    border-radius: 15px;
+	padding: 10px;
+}

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="Bakground.css" rel="stylesheet" type="text/css">
+<link href="Background.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" type="x-icon" href="images/Logo.webp">
 </head>
 <body>
@@ -60,14 +60,15 @@
       <input type="number" class="form-control" id="t" placeholder="ระบุจำนวนปี">
       </div>
 	<div class="form-group">
-      <label for="n">จำนวนงวดต่อปี</label>
-      <input type="number" class="form-control" id="n" placeholder="ระบุจำนวนงวดต่อปี">
+      <label for="n">จำนวนครั้งที่ดอกเบี้ยทบต้นต่อปี</label>
+      <input type="number" class="form-control" id="n" placeholder="ระบุจำนวนครั้งที่ดอกเบี้ยทบต้นต่อปี">
 	  </div>
 	  <button onclick="answer(event)" class="btn text-white btn-dark">คำนวณ</button>
 	  <hr class="my-4">
 	  <p class="form-control bg-light">จำนวนมูลค่าปัจจุบัน = <span id="output"></span></p>
-
   </form>
+  <canvas class="mt-5 bg-light" id="myChart"></canvas>
+  <canvas class="mt-5 bg-light" id="myChartX"></canvas>
 </div>
 <hr class="my-4">
 <footer>© BasicFinancialCalculator Copyright 2022 | All rights reserved.</footer>
@@ -75,19 +76,9 @@
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap-4.4.1.js"></script>
-<script>
-	function answer(event){
-  event.preventDefault()
-  var fv=parseFloat(document.getElementById('fv').value);
-  var t=parseFloat(document.getElementById('t').value);
-  var n=parseFloat(document.getElementById('n').value);
-  var i=parseFloat(document.getElementById('i').value);
-		
-	var PV = (fv / Math.pow(1 + ((i/100) / n) ,n*t)).toFixed(2);;
-	
-		document.getElementById("output").innerHTML = PV;
-	}
-	</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script/PresentValue.js"></script>
+
 
 </body>
 </html>

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="Bakground.css" rel="stylesheet" type="text/css">
+<link href="Background.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" type="x-icon" href="images/Logo.webp">
 </head>
 <body>
@@ -64,6 +64,7 @@
 	  <p class="form-control bg-light">จำนวนเงินดอกเบี้ย = <span id="outputInterest"></span></p>
 	  <p class="form-control bg-light">จำนวนเงินรวม = <span id="outputTotal"></span></p>
   </form>
+  <canvas class="mt-5 bg-light" id="myChart"></canvas>
 </div>
 <hr class="my-4">
 <footer>© BasicFinancialCalculator Copyright 2022 | All rights reserved.</footer>
@@ -71,20 +72,8 @@
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap-4.4.1.js"></script>
-<script>
-	function answer(event){
-  event.preventDefault()
-  var amount_input=parseFloat(document.getElementById('amount').value);
-  var rate_input=parseFloat(document.getElementById('rate').value);
-  var time_input=parseFloat(document.getElementById('time').value);
-
-  var interest=(amount_input*rate_input*time_input/100).toFixed(2);
-  var total=(parseFloat(amount_input) + parseFloat(interest)).toFixed(2);
-
-  document.getElementById("outputInterest").innerHTML = interest;
-  document.getElementById("outputTotal").innerHTML = total;
-	}
-	</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script/SimpleInterest.js"></script>
 
 </body>
 </html>

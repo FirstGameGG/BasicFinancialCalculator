@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet" type="text/css">
-<link href="Bakground.css" rel="stylesheet" type="text/css">
+<link href="Background.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" type="x-icon" href="images/Logo.webp">
 </head>
 <body>
@@ -62,8 +62,9 @@
 	  <button onclick="answer(event)" class="btn text-white btn-dark">คำนวณ</button>
 	  <hr class="my-4">
 	  <p class="form-control bg-light">จำนวนเงินดอกเบี้ยต่อเดือน= <span id="outputmonthlyInterest"></span></p>
-	  <p class="form-control bg-light">จำนวนเงินที่ต้องจ่ายต่อเดือน= <span id="outputmonthlytotal"></span></p>
+	  <p class="form-control bg-light">จำนวนเงินที่ต้องจ่ายต่อเดือน= <span id="outputmonthlyTotal"></span></p>
   </form>
+  <canvas class="mt-5 bg-light" id="myChart"></canvas>
 </div>
 <hr class="my-4">
 <footer>© BasicFinancialCalculator Copyright 2022 | All rights reserved.</footer>
@@ -71,22 +72,8 @@
 <script src="js/popper.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap-4.4.1.js"></script>
-<script>
-	function answer(event){
-  event.preventDefault()
-  var p=parseFloat(document.getElementById('p').value);
-  var r=parseFloat(document.getElementById('r').value);
-  var t=parseFloat(document.getElementById('t').value); 
-
-  var monthlyInterest = p * ((r/100)/ 12).toFixed(2);
-  var monthlytotal = monthlyInterest + ( p / (12* t) ).toFixed(2); 
- 
-			
-  document.getElementById("outputmonthlyInterest").innerHTML =  monthlyInterest;
-  document.getElementById("outputmonthlytotal").innerHTML = monthlytotal;
-		
-	}
-	</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script/Loan.js"></script>
 
 </body>
 </html>
